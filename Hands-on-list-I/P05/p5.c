@@ -22,3 +22,13 @@ int main(int argc, char *argv)
 
 	return 0;
 }
+
+/*
+Output:
+
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P05$ ./p5 &
+[1] 6519
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P05$ cat /proc/6519/fd/
+0  1  2  3  4  5  6  7
+
+*/

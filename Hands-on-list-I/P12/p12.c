@@ -14,10 +14,12 @@ void print_file_mode(int flags) {
     if (flags & O_RDONLY) {
         printf("  Read-only\n");
     }
-    else if (flags & O_WRONLY) {
+    
+    if (flags & O_WRONLY) {
         printf("  Write-only\n");
     }
-    else if (flags & O_RDWR) {
+    
+    if (flags & O_RDWR) {
         printf("  Read/Write\n");
     }
     else if (flags & O_APPEND) {

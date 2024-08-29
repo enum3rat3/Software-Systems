@@ -53,3 +53,13 @@ int main(int argc, char *argv[])
 	}
 	return 0;
 }
+
+/*
+Output:
+
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P14$ ./p14 /
+File type of /: Directory file
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P14$ ./p14 p14
+File type of p14: Regular file
+
+*/

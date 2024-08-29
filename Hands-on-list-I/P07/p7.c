@@ -31,9 +31,29 @@ int main(int arg, char *argv[])
 		return -1;
 	}
 
-	while(fgetc(f1) != EOF)
+	char c;
+	while((c = fgetc(f1)) != EOF)
 	{
-		fputc(fgetc(f1), f2);
+		fputc(c, f2);
 	}
 	return 0;
 }
+
+/*
+Output:
+
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P07$ gcc p7.c -o cp
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P07$ ./cp file1 file2
+
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P07$ cat file1
+Hello, Reader
+My Name is J@1M1N!
+MTech student in IIITB
+
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P07$ cat file2
+Hello, Reader
+My Name is J@1M1N!
+MTech student in IIITB
+
+
+*/

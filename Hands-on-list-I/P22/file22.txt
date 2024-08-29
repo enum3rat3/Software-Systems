@@ -1,0 +1,2 @@
+This line written by parent process in file22.txt
+This line is written by child process in file22.txt

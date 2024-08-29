@@ -24,3 +24,12 @@ int main(int argv,char *argc[])
 
 	return 0;
 }
+
+/*
+Output:
+
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P04$ ./p4 file4
+3
+4
+
+*/

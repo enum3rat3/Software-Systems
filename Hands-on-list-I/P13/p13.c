@@ -26,9 +26,18 @@ int main()
     	{
         	printf("Time out\n");
     	}
-   	 else
+   	else
     	{
         	printf("Data entered");
     	}
     	return 0;
 }
+
+/*
+Output:
+
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P13$ ./p13
+hello, my name is jaimin
+Data entered
+
+*/

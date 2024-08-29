@@ -18,3 +18,11 @@ int main()
 	printf("Value of file descriptor: %d\n", filedesc);
 	return 0; 
 }
+
+/*
+Output:
+
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P03$ ./p3
+Value of file descriptor: 3
+
+*/

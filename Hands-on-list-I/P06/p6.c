@@ -28,3 +28,16 @@ int main() {
 
     return 0;
 }
+
+/*
+Output:
+
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P06$ ./p6
+Hello, My name is Jaimin Jadvani
+Hello, My name is Jaimin Jadvani
+
+
+I'm 1st year MTech CSE student
+I'm 1st year MTech CSE student
+
+*/

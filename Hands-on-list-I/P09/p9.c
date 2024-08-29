@@ -51,3 +51,24 @@ int main(int agrv,char *argc[]){
 	
 	return 0;
 }
+
+/*
+Output:
+
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P09$ ./p9 ../P10
+id of device=2053
+inode=1838032
+file type and mode=16893
+number of hardlink=2
+user id=1000
+group id=1000
+device id=0
+total size in bytes=4096
+Block size of filesystem=4096
+Number of block=8
+Last access time=Thu Aug 29 08:18:52 2024
+Last modified time=Wed Aug 21 22:39:13 2024
+Last status change time=Wed Aug 21 22:39:13 2024
+
+
+*/

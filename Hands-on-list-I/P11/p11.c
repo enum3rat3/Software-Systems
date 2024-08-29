@@ -27,3 +27,20 @@ int main(int argv,char *argc[]){
 	
 	return 0;
 }
+
+/*
+Output:
+
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P11$ ./p11 file1.txt
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P11$ cat file1.txt
+Hi, written using original file descriptor
+Hi, USER Written using dup() file descriptor
+Hi, USER written using dup2() file descriptor
+Hi, USER written using fcntl() file descriptor
+Hi, written using original file descriptor
+HiHi, USER Written using dup() file descriptor
+Hi,Hi, USER written using dup2() file descriptor
+Hi, Hi, USER written using fcntl() file descriptor
+
+
+*/

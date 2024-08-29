@@ -34,3 +34,14 @@ int main(int argc, char *argv[])
 
 	return 0;
 }
+
+/*
+Output:
+
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P08$ ./p8 file1
+Hello,
+This program reads from file print in the terminal
+Hope it will work properly.
+
+
+*/

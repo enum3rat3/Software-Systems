@@ -33,3 +33,13 @@ int main()
 	close(fd);	
 	return 0;
 }
+
+/*
+Output:
+
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P10$ ./p10 file1.txt
+Value lseek() returned: 20
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P10$ cat file1.txt
+ABCDEFGHIJKLMNOPQRS
+
+*/
