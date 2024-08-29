@@ -1,5 +1,5 @@
 /*
-Name: Jaimin Jadvanin
+Name: Jaimin Jadvani
 Roll No.: MT2024064
 Program Name: Write a program to find the type of a file.
 		a. Input should be taken from command line.
