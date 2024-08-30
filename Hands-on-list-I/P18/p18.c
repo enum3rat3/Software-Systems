@@ -2,112 +2,105 @@
 Name: Jaimin Jadvani
 Roll No.: MT2024064
 Program Name: Write a program to perform Record locking.
-		a. Implement write lock
-		b. Implement read lock
-		Create three records in a file. Whenever you access a particular record, first lock it then modify/access to avoid race condition.
+                a. Implement write lock
+                b. Implement read lock
+                Create three records in a file. Whenever you access a particular
+record, first lock it then modify/access to avoid race condition.
 */
 
-#include<stdio.h>
-#include<unistd.h>
 #include<fcntl.h>
-#include<sys/stat.h>
+#include<stdio.h>
 #include<stdlib.h>
+#include<sys/stat.h>
+#include<unistd.h>
 
-struct database
-{
-	int roll;
-	int marks;
-}db;
+struct database {
+     int roll;
+     int marks;
+} db;
 
-int main()
-{
+int main() {
+     printf(
+         "There are total 3 records in the file\nSelect the record to perform "
+         "read or write operation on 1 or 2 or 3\n");
+     int n;
+     scanf("%d", &n);
+     if (n > 3 || n < 1) {
+          printf("Invalid input so terminating program \n");
+          exit(0);
+     }
 
-	    printf("There are total 3 records in the file \n select the record to perform read or write operation on 1 or 2 or 3 \n");
-	    int n;
-	    scanf("%d",&n);
-	    if(n > 3 || n <1)
-	    {
-        	printf("Invalid input so terminating program \n");
-	        exit(0);
-	    }
-    
-	    printf("Perform read or write 1 . read or 2. write By default goes to read \n");
-	    int t;
-	    scanf("%d",&t);
-	    struct flock locking;
-	    
-	    if(t == 2)
-		  locking.l_type = F_WRLCK;
-	    else
-		  locking.l_type = F_RDLCK;
-      
-  	    int fd = open("record.txt",O_RDWR);
-	    if(fd == -1)
-	    {
-		    perror("File cannot be opened \n");
-		    exit(0);
-  	    }
-  
-  	    locking.l_whence = SEEK_SET;
-            locking.l_start = sizeof(db)*(n-1);
-  	    locking.l_len = sizeof(db);
-	  
-	    int stat = fcntl(fd,F_SETLK,&locking);
-	    if(stat == -1)
-    	    {
-		    perror("Cannot obtained the lock for writing so exiting the program \n");
-		    exit(0);
-	    }
-  
-	    if(t == 2)
-	    {
-   		    printf("Enter the roll number : ");
-	            scanf("%d",&(db.roll));
-		    printf("Enter the marks : ");
-		    scanf("%d",&(db.marks));
-		    lseek(fd,sizeof(db)*(n-1),SEEK_SET);
-		    write(fd,&db,sizeof(db));
-  	    }
-	    
-	    else
-  	    {	
-		    lseek(fd,sizeof(db)*(n-1),SEEK_SET);
-		    if(read(fd,&db,sizeof(db)))
-	            {
-		            printf("%d  %d\n",db.roll, db.marks);
-      		    }
-		    else
-      		    {
-		            perror("Error while reading file \n");
-      		    }
-  	     }
-  
-  
-	     locking.l_type = F_UNLCK;
- 	     fcntl(fd,F_SETLK,&locking);
-  	     close(fd);
-	     
-	     printf("Contents of the records after modification : \n");
-	     fd = open("record.txt",O_RDONLY);
-	     locking.l_type = F_RDLCK;
-  
-	     stat = fcntl(fd,F_SETLK,&locking);
- 	     if(stat == -1)
-	     {
-		    perror("Cannot obtained the lock  for reading file so exiting the program  \n");
-		    exit(0);
-  	     }
-  
-	     while(read(fd,&db,sizeof(db)))
-	     {
-		    printf("%d  %d \n",db.roll,db.marks);
-  	     }
+     printf(
+         "Perform read or write\n1. read\n2. write\nBy default goes to read\n");
+     int t;
+     scanf("%d", &t);
+     struct flock locking;
 
-	     locking.l_type = F_UNLCK;
-	     fcntl(fd,F_SETLK,&locking);
-	     close(fd);	
- 	     
-	     return 0;
+     if (t == 2)
+          locking.l_type = F_WRLCK;
+     else
+          locking.l_type = F_RDLCK;
+
+     int fd = open("record.txt", O_RDWR);
+     if (fd == -1) {
+          perror("File cannot be opened \n");
+          exit(0);
+     }
+
+     locking.l_whence = SEEK_SET;
+     locking.l_start = sizeof(db) * (n - 1);
+     locking.l_len = sizeof(db);
+
+     int stat = fcntl(fd, F_SETLK, &locking);
+     if (stat == -1) {
+          perror(
+              "Cannot obtained the lock for writing so exiting the program \n");
+          exit(0);
+     }
+
+     if (t == 2) {
+          printf("Enter the roll number : ");
+          scanf("%d", &(db.roll));
+          printf("Enter the marks : ");
+          scanf("%d", &(db.marks));
+          lseek(fd, sizeof(db) * (n - 1), SEEK_SET);
+          write(fd, &db, sizeof(db));
+     }
+
+     else {
+          lseek(fd, sizeof(db) * (n - 1), SEEK_SET);
+          if (read(fd, &db, sizeof(db))) {
+               printf("%d  %d\n", db.roll, db.marks);
+          } else {
+               perror("Error while reading file \n");
+          }
+     }
+
+     locking.l_type = F_UNLCK;
+     fcntl(fd, F_SETLK, &locking);
+     close(fd);
+
+     printf("Contents of the records after modification : \n");
+     fd = open("record.txt", O_RDONLY);
+     locking.l_type = F_RDLCK;
+
+     stat = fcntl(fd, F_SETLK, &locking);
+     if (stat == -1) {
+          perror(
+              "Cannot obtained the lock  for reading file so exiting the "
+              "program  \n");
+          exit(0);
+     }
+
+     while (read(fd, &db, sizeof(db))) {
+          printf("%d  %d \n", db.roll, db.marks);
+     }
+
+     locking.l_type = F_UNLCK;
+     fcntl(fd, F_SETLK, &locking);
+     close(fd);
+
+     return 0;
 }
 
 /*
@@ -119,9 +112,13 @@ jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P18$ ./initial
 3  70
 jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P18$ ./p18
 There are total 3 records in the file
-select the record to perform read or write operation on 1 or 2 or 3
+Select the record to perform read or write operation on 1 or 2 or 3
 1
-Perform read or write 1 . read or 2. write By default goes to read
+Perform read or write
+1. read
+2. write
+By default goes to read
+
 1
 1  50
 Contents of the records after modification :
@@ -130,9 +127,13 @@ Contents of the records after modification :
 3  70
 jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P18$ ./p18
 There are total 3 records in the file
- select the record to perform read or write operation on 1 or 2 or 3
+Select the record to perform read or write operation on 1 or 2 or 3
 1
-Perform read or write 1 . read or 2. write By default goes to read
+Perform read or write
+1. read
+2. write
+By default goes to read
+
 2
 Enter the roll number : 1
 Enter the marks : 100
