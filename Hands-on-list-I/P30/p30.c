@@ -1,48 +1,73 @@
 /*
-Name: Jaimin Jadvani
+Name : Jaimin Jadvani
 Roll No.: MT2024064
-Program Name: Write a program to run a script at a specific time using a Daemon process.
+Program Name : Write a program to run a script at a specific time using a Daemon process.
 */
-#include <time.h>      
-#include <stdio.h>     
-#include <stdlib.h>   
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 #include <sys/types.h>
-#include <unistd.h>   
 #include <sys/stat.h>
+#include <string.h>
+#include <fcntl.h>
 
-int main(int argc, char **argv)
+int main()
 {
-    time_t currentEpoch, deadlineEpoch; 
-    struct tm *deadline;
-
-    pid_t child;
-
-    if (argc < 2)
-        printf("arguments are less than 2\n");
-    else
+    pid_t pid = 0;
+    pid_t sid = 0;
+    int fd = open("file30.txt",O_WRONLY);
+    pid = fork();
+    if(pid < 0)
     {
-        time(&currentEpoch);
-        deadline = localtime(&currentEpoch);
-
-        deadline->tm_hour = atoi(argv[1]);
-        deadline->tm_min = argv[2] == NULL ? 0 : atoi(argv[2]);
-        deadline->tm_sec = argv[3] == NULL ? 0 : atoi(argv[3]);
-
-        deadlineEpoch = mktime(deadline);
-
-        if ((child = fork()) == 0)
-        {
-            setsid();
-            chdir("/");
-            umask(0);
-            do
-            {
-                time(&currentEpoch);
-            } while (difftime(deadlineEpoch, currentEpoch) > 0);
-            printf("Got it!\n");
-            exit(0);
-        }
+        perror("Failed to create child process!\n");
+        exit(1);
+    }
+    
+    if(pid > 0)
+    {
+        printf("The process id of the parent is %d\n",pid);
         exit(0);
     }
-    return 0;
+    
+    sleep(5);
+    
+    umask(0);
+    
+    sid = setsid();
+    
+    if(sid < 0)
+    {
+        exit(0);
+    }
+    
+    chdir("/home/jaimin/Desktop/Software-Systems/Hands-on-list-I/P30/");
+    close(0);
+    close(1);
+    close(2);
+    
+    while(1)
+    {
+        sleep(2);
+        write(fd,"this is deamon\n",15);
+    }
+    
+    return 0;    
 }
+
+/*
+Output:
+
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P30$ touch file30.txt
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P30$ ./p30
+The process id of the parent is 7628
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P30$ cat file30.txt
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P30$ cat file30.txt
+this is deamon
+this is deamon
+this is deamon
+this is deamon
+this is deamon
+
+*/

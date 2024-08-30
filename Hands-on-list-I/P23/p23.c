@@ -29,12 +29,20 @@ int main()
 /*
 Output:
 
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P23$ ./p23
+Child pid= 4251
+Parent id= 4250
+
+
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P23$ cat /proc/4251/status
 Name:	p23
 State:	Z (zombie)
-Tgid:	5935
+Tgid:	4251
 Ngid:	0
-Pid:	5935
-PPid:	5934
-
+Pid:	4251
+PPid:	4250
+TracerPid:	0
+Uid:	1000	1000	1000	1000
+Gid:	1000	1000	1000	1000
 
 */

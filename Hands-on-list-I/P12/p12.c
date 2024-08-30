@@ -8,36 +8,39 @@ Program Name: Write a program to find out the opening mode of a file. Use fcntl
 #include <fcntl.h>
 #include <unistd.h>
 
-void print_file_mode(int flags) {
-    printf("File mode:\n");
+void print_file_mode(int flag) {
+     
+    int mask = flag & O_ACCMODE;
+	
+    printf("File mode: ");
 
-    if (flags & O_RDONLY) {
+    if (mask == O_RDONLY) {
         printf("  Read-only\n");
     }
     
-    if (flags & O_WRONLY) {
+    else if (mask == O_WRONLY) {
         printf("  Write-only\n");
     }
     
-    if (flags & O_RDWR) {
+    else if (mask == O_RDWR) {
         printf("  Read/Write\n");
     }
-    else if (flags & O_APPEND) {
+    else if (mask == O_APPEND) {
         printf("  Append mode\n");
     }
-    else if (flags & O_CREAT) {
+    else if (mask == O_CREAT) {
         printf("  Created if not exists\n");
     }
-    else if (flags & O_TRUNC) {
+    else if (mask == O_TRUNC) {
         printf("  Truncate file to zero length\n");
     }
-    else if (flags & O_EXCL) {
+    else if (mask == O_EXCL) {
         printf("  Exclusive creation\n");
     }
-    else if (flags & O_NONBLOCK) {
+    else if (mask == O_NONBLOCK) {
         printf("  Non-blocking mode\n");
     }
-    else if (flags & O_SYNC) {
+    else if (mask == O_SYNC) {
         printf("  Synchronized I/O\n");
     }
 }
@@ -56,10 +59,30 @@ int main(int argc, char *argv[]) {
         return -1;
     }
 
-    int flags = fcntl(fd, F_GETFL);
+    int flag = fcntl(fd, F_GETFL);
+    // printf("%o\n", flag);
 
-    print_file_mode(flags);
+    print_file_mode(flag);
 
     close(fd);
     return 0;
 }
+
+/*
+Output:
+
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P12$ gcc p12.c -o p12
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P12$ ./p12 file1.txt
+File mode:   Read-only
+
+If we want other mode then write:  open(filename, <MODE>)
+
+following <MODE> are possible:
+O_RDONLY
+O_WRONLY
+O_RDWR
+O_CREAT
+O_TRUNC
+O_APPEND
+
+*/

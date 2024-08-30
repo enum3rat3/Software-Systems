@@ -1,8 +1,8 @@
 /*
 Name: Jaimin Jadvani
 Roll No.: MT2024064
-Program Name: 
-
+Program Name: Write a program to simulate online ticket reservation. Implement write lock 
+Write a program to open a file, store a ticket number and exit. Write a separate program, to open the file, implement write lock, read the ticket number, increment the number and print the new ticket number then close the file. 
 */
 
 #include<stdio.h>
@@ -107,3 +107,29 @@ int main()
 
 	  return 0;
 }
+
+/*
+Output:
+
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P17$ ./ticket_initial
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P17$ ./testing
+1  --> 120
+2  --> 120
+3  --> 120
+4  --> 120
+5  --> 120
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P17$ vim p17.c
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P17$ gcc p17.c -o p17
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P17$ ./p17
+Please enter your name : jaimin
+Please enter your required compartment : 3
+3  120
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P17$ ./testing
+1  --> 120
+2  --> 120
+3  --> 121
+4  --> 120
+5  --> 120
+jaimin    3   121
+
+*/

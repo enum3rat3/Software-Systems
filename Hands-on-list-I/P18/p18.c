@@ -109,3 +109,36 @@ int main()
  	     
 	     return 0;
 }
+
+/*
+Output:
+
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P18$ ./initial
+1  50
+2  60
+3  70
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P18$ ./p18
+There are total 3 records in the file
+select the record to perform read or write operation on 1 or 2 or 3
+1
+Perform read or write 1 . read or 2. write By default goes to read
+1
+1  50
+Contents of the records after modification :
+1  50
+2  60
+3  70
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P18$ ./p18
+There are total 3 records in the file
+ select the record to perform read or write operation on 1 or 2 or 3
+1
+Perform read or write 1 . read or 2. write By default goes to read
+2
+Enter the roll number : 1
+Enter the marks : 100
+Contents of the records after modification :
+1  100
+2  60
+3  70
+
+*/

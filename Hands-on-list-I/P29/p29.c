@@ -49,8 +49,11 @@ int main()
 /*
 Output:
 
-jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P29$ gcc p29.c -o p29
-jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P29$ ./p29
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P29$ sudo ./p29 
+[sudo] password for jaimin: 
+Current policy is OTHER
+Current policy is 1
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-I/P29$ ./p29 
 Current policy is OTHER
 Current policy is 0
 
