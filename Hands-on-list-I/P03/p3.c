@@ -1,7 +1,9 @@
 /*
 Name: Jaimin Jadvani
 Roll No.: MT2024064
-Title:  write a program to create a file and print the file descriptor value. Use creat ( ) system call
+Program Name:  write a program to create a file and print the file descriptor value. Use creat ( ) system call
+
+Date: 18 Aug 2024
 */
 
 #include<stdio.h>

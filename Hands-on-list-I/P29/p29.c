@@ -3,6 +3,8 @@ Name: Jaimin Jadvani
 Roll No.: MT2024064
 Program Name: Write a program to get scheduling policy and modify the scheduling policy (SCHED_FIFO,
 SCHED_RR).
+
+Date: 28 Aug 2024
 */
 
 #include<stdio.h>

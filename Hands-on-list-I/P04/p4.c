@@ -2,6 +2,8 @@
 Name: Jaimin Jadvani
 Roll No.: MT2024064
 Program Name: Write a program to open an existing file with read write mode. Try O_EXCL flag also.
+
+Date: 18 Aug 2024
 */
 
 #include<stdio.h>

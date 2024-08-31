@@ -4,6 +4,8 @@ Roll No.: MT2024064
 Program Name: Write a program to perform mandatory locking.
 		a. Implement write lock
 		b. Implement read lock
+
+Date: 25 Aug 2024
 */
 
 #include<stdio.h>

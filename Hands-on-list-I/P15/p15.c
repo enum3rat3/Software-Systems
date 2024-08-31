@@ -2,6 +2,8 @@
 Name: Jaimin Jadvani
 Roll No.: MT2024064
 Program Name: Write a program to display the environmental variable of the user (use environ).
+
+Date: 18 Aug 2024
 */
 
 #include<stdio.h>

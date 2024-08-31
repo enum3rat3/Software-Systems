@@ -2,6 +2,8 @@
 Name: Jaimin Jadvani 
 Roll No. MT2024064
 Program Name: Write a program to copy file1 into file2 ($cp file1 file2).
+
+Date: 18 Aug 2024
 */
 
 #include<stdio.h>

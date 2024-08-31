@@ -2,6 +2,8 @@
 Name: Jaimin Jadvani
 Roll No. MT2024064
 Program Name: Write a program to open a file in read only mode, read line by line and display each line as it is read. Close the file when end of file is reached.
+
+Date: 18 Aug 2024
 */
 
 #include<stdio.h>

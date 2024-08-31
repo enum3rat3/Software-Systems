@@ -2,6 +2,8 @@
 Name: Jaimin Jadvani
 Roll No.: MT2024064
 Program Name: Write a program to open a file, store a ticket number and exit
+
+Date: 25 Aug 2024
 */
 
 #include<fcntl.h>

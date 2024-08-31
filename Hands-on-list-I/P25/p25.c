@@ -3,6 +3,8 @@ Name: Jaimin Jadvani
 Roll No.: MT2024064
 Program Name: Write a program to create three child processes. The parent should wait for a particular child (use
 waitpid system call).
+
+Date: 28 Aug 2024
 */
 
 #include<stdio.h>

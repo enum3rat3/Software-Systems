@@ -6,6 +6,8 @@ Program Name: Write a program to perform Record locking.
                 b. Implement read lock
 Create three records in a file. Whenever you access a particular record, first
 lock it then modify/access to avoid race condition.
+
+Date: 25 Aug 2024
 */
 
 #include<fcntl.h>
@@ -20,9 +22,6 @@ struct database {
 } db;
 
 int main() {
-     // struct database an;
-
-     // printf("%d  --> %d \n",as.a,as.b);
      struct flock locking;
      locking.l_type = F_WRLCK;
      locking.l_whence = SEEK_SET;

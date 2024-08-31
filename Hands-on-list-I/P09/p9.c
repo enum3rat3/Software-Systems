@@ -12,6 +12,8 @@ Program Name: Write a program to print the following information about a given f
 		h. time of last access
 		i. time of last modification
 		j. time of last change
+
+Date: 18 Aug 2024
 */
 
 #include<stdio.h>

@@ -5,6 +5,8 @@ Program Name: Write a program to open a file, duplicate the file descriptor and 
 	a. use dup
 	b. use dup2
 	c. use fcntl
+
+Date: 18 Aug 2024
 */
 
 #include<unistd.h>

@@ -2,6 +2,8 @@
 Name: Jaimin Jadvani
 Roll No.: MT2024064
 Program Name: Write a program to take input from STDIN and display on STDOUT. Use only read/write system calls
+
+Date: 18 Aug 2024
 */
 
 #include <unistd.h>

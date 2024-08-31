@@ -2,6 +2,8 @@
 Name: Jaimin Jadvani
 Roll No.: MT2024064
 Program Name: Write a program to find out the opening mode of a file. Use fcntl
+
+Date: 18 Aug 2024
 */
 
 #include <stdio.h>
