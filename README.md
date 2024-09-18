@@ -3,9 +3,9 @@
 ## Hands on list I
 
 1. Create the following types of a files using (i) shell command (ii) system call
-   a. soft link (symlink system call)
-   b. hard link (link system call)
-   c. FIFO (mkfifo Library Function or mknod system call)
+a. soft link (symlink system call)
+b. hard link (link system call)
+c. FIFO (mkfifo Library Function or mknod system call)
 
 2. Write a simple program to execute in an infinite loop at the background. Go to /proc directory and identify all the process related information in the corresponding proc directory.
 
