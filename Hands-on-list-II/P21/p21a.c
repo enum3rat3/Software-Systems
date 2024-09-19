@@ -1,7 +1,7 @@
 /*
 Name: Jaimin Jadvani
 Roll No.: MT2024064
-Program Description: Write two programs so that both can communicate by FIFO -Use one way communication.
+Program Description: Write two programs so that both can communicate by FIFO - Use two way communications
 
 Date: 19 Sept 2024
 */
