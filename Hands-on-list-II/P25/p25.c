@@ -21,7 +21,7 @@ Date: 19 Sept 2024
 #include <unistd.h>
 #include <errno.h>
 
-void main()
+int main()
 {
     key_t queueKey;
     int queueIdentifier;
@@ -64,6 +64,8 @@ void main()
     printf("Maximum number of bytes allowed in the queue: %ld\n", queueInfo.msg_qbytes);
     printf("PID of last sent message: %d\n", queueInfo.msg_lspid);
     printf("PID of last received message: %d\n", queueInfo.msg_lrpid);
+
+    return 0;
 }
 
 /*
