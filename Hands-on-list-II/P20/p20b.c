@@ -6,13 +6,13 @@ Program Description: Write two programs so that both can communicate by FIFO - U
 Date: 19 Sept 2024
 */
 
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdio.h>
+#include<sys/types.h>
+#include<sys/stat.h>
+#include<fcntl.h>
+#include<unistd.h>
+#include<stdio.h>
 
-void main()
+int main()
 {
     int fileDescriptor;
     char *fifoFile = "./FIFO_File";

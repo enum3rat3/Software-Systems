@@ -53,5 +53,4 @@ jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-II/P23$ ./p23
 Maximum number of files that can be opened is: 1024
 Maximum size of pipe: 4096
 
-
 */
