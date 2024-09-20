@@ -6,37 +6,49 @@ Program Description: Write two programs so that both can communicate by FIFO - U
 Date: 19 Sept 2024
 */
 
-#include<stdio.h>
-#include<sys/types.h>
-#include<sys/stat.h>
-#include<unistd.h>
-#include<fcntl.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/stat.h>
 
-int main()
-{	
-    int fifoStatus;                              
-    char data[] = "Hello from 20a.c program to 20b.c";
-    int fileDescriptor;                         
-    char *fifoFile = "./FIFO_File";               
-    int writeBytes;
+#define FIFO1 "fifo1" 
+#define FIFO2 "fifo2"
 
-    fifoStatus = mkfifo(fifoFile, S_IRWXU);
-
-    if (fifoStatus == -1)
-        perror("Error: \n");
-    fileDescriptor = open(fifoFile, O_WRONLY);
-    if (fileDescriptor == -1)
-        perror("Error: \n");
-    else
-    {
-        writeBytes = write(fileDescriptor, &data, sizeof(data));
-        if (writeBytes == -1)
-            perror("Error: \n");
-        close(fileDescriptor);
+int main() {
+    if (mkfifo(FIFO1, 0666) == -1) {
+        perror("mkfifo");
+        exit(EXIT_FAILURE);
     }
+    if (mkfifo(FIFO2, 0666) == -1) {
+        perror("mkfifo");
+        exit(EXIT_FAILURE);
+    }
+
+    char writeMessage[100], readMessage[100];
+
+    while (1) {
+        printf("Program 21a: Enter message: ");
+        fgets(writeMessage, sizeof(writeMessage), stdin);
+
+        int fd1 = open(FIFO1, O_WRONLY);
+        write(fd1, writeMessage, strlen(writeMessage) + 1);
+        close(fd1);
+
+        int fd2 = open(FIFO2, O_RDONLY);
+        read(fd2, readMessage, sizeof(readMessage));
+        printf("Program 21b: %s\n", readMessage);
+        close(fd2);
+    }
+
+    return 0;
 }
 
 /*
+
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-II/P21$ ./p21a
+Program 21a: Enter message: Hello from P21a    
+Program 21b: Hi from P21b
 
 */
