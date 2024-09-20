@@ -13,10 +13,10 @@ int main()
 {		
 	// File descriptor used for pipe operations
     int pipefd[2];                // pipefd[0] -> read, pipefd[1] -> write
-    char *writeBuffer = "Yolo!!"; // Data sent through the pipe
+    char *writeBuffer = "Practical 14: creating pipe, and writing into the pipe\n"; // Data sent through the pipe
     char *readBuffer;
-    int pipeStatus;            // Variable used to determine success of `pipe` call
-    int readBytes, writeBytes; // Number of bytes written using `write` & read using `read`
+    int pipeStatus;
+    int readBytes, writeBytes;
 
     // Creating a pipe
     pipeStatus = pipe(pipefd);
@@ -45,5 +45,11 @@ int main()
 }
 
 /*
+
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-II/P14$ gcc p14.c -o p14
+jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-II/P14$ ./p14 
+Writing to the pipe!
+Now reading from the pipe!
+Data from pipe: Practical 14: creating pipe, and writing into the pipe
 
 */

@@ -1,8 +1,7 @@
 /*
 Name: Jaimin Jadvani
 Roll No.: MT2024064
-Program Description: Write a program to execute ls -l | wc.
-                    a. use dup
+Program Description:Write a program to send and receive data from parent to child vice versa. Use two way communication
 
 Date: 19 Sept 2024
 */

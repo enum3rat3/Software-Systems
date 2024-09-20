@@ -2,7 +2,7 @@
 Name: Jaimin Jadvani
 Roll No.: MT2024064
 Program Description: Write a program to execute ls -l | wc.
-                    a. use dup
+                    c. use fcntl
 
 Date: 19 Sept 2024
 */
