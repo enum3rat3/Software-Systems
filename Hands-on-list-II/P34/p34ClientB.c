@@ -42,7 +42,7 @@ int main()
         printf("Error while connecting to server!\n");
         exit(0);
     }
-    printf("Client to serrver connection successfully established!\n");
+    printf("Client to server connection successfully established!\n");
 
     readBytes = read(socketFileDescriptor, dataFromServer, 100);
 
@@ -67,7 +67,7 @@ int main()
 
 jaimin@Ubuntu-VM:~/Desktop/Software-Systems/Hands-on-list-II/P34$ ./ClientB
 Client side socket successfully created!
-Client to serrver connection successfully established!
+Client to server connection successfully established!
 Data from server: Hello from Server Program
 
 Data sent to server!
